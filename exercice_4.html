@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table style="border: 1px; ">
+        <tr>
+            <td colspan="7"><input type="text" id="afficher" readonly></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+            <td><button onclick="appendToDisplay('(')">(</button></td>
+            <td><button onclick="appendToDisplay(')')">)</button></td>
+            <td><button onclick="appendToDisplay('%')">%</button></td>
+            <td><button onclick="clearDisplay()">CE</button></td>
+        </tr>
+        <tr>
+           <td><button onclick="appendToDisplay('Inv')">Inv</button></td>
+           <td><button onclick="appendToDisplay('sin')">sin</button></td>
+           <td><button onclick="appendToDisplay('ln')">ln</button></td>
+           <td><button onclick="appendToDisplay('7')">7</button></td>
+           <td><button onclick="appendToDisplay('8')">8</button></td>
+           <td><button onclick="appendToDisplay('9')">9</button></td>
+           <td><button onclick="appendToDisplay('/')">÷</button></td> 
+        </tr>
+        <tr>
+            <td><button onclick="appendToDisplay('π')">π</button></td>
+            <td><button>cos</button></td>
+            <td><button>log</button></td>
+            <td><button onclick="appendToDisplay('4')">4</button></td>
+            <td><button onclick="appendToDisplay('5')">5</button></td>
+            <td><button onclick="appendToDisplay('6')">6</button></td>
+            <td><button onclick="appendToDisplay('*')">x</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendToDisplay('e')">e</button></td>
+            <td><button onclick="appendToDisplay('tan')">tan</button></td>
+            <td><button onclick="appendToDisplay('√')" >√</button></td>
+            <td><button onclick="appendToDisplay('3')">3</button></td>
+            <td><button onclick="appendToDisplay('2')">2</button></td>
+            <td><button onclick="appendToDisplay('1')">1</button></td>
+            <td><button onclick="appendToDisplay('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button>EXP</button></td>
+            <td><button onclick="appendToDisplay('**2')">x²</button></td>
+            <td><button onclick="appendToDisplay('**')">x^</button></td>
+            <td><button onclick="appendToDisplay('.')">.</button></td>
+            <td><button onclick="appendToDisplay('0')">0</button></td>
+            <td><button onclick="calculate()">=</button></td>
+            <td><button onclick="appendToDisplay('+')">+</button></td>
+        </tr>   
+    </table>
+</body>
+</html>
+<script>
+    const afficher=document.getElementById('afficher')
+    function appendToDisplay(input){
+        afficher.value+=input
+    }
+    function clearDisplay(){
+        afficher.value=""
+    }
+    function calculate(){
+        expression=afficher.value
+        expression = expression.replace(/sin/g, "Math.sin");
+        expression = expression.replace(/cos/g, "Math.cos");
+        expression = expression.replace(/tan/g,"Math.tan");
+        expression = expression.replace(/log/g, "Math.log10");
+        expression = expression.replace(/ln/g, "Math.log");
+        expression = expression.replace(/√/g, "Math.sqrt");
+        expression.replace(/π/g,"Math.PI")
+        afficher.value=eval(expression)
+
+    }
+    
+</script>
