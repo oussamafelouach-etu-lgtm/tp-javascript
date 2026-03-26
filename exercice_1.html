@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Permutation</title>
+</head>
+<body>
+
+<input type="text" id="zone1">
+<input type="text" id="zone2"><br><br>
+
+<button onclick="permuter()">Permuter</button>
+
+<script>
+
+function permuter() {
+
+    var a = document.getElementById("zone1").value;
+    var b = document.getElementById("zone2").value;
+
+    document.getElementById("zone1").value = b;
+    document.getElementById("zone2").value = a;
+
+}
+
+</script>
+
+</body>
+</html>

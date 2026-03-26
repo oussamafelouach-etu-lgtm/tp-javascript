@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculateur IMC</title>
+</head>
+
+<body>
+
+<h2>Calculateur d'IMC</h2>
+
+Poids (kg) :
+<input type="text" id="poids"><br><br>
+
+Taille (m) :
+<input type="text" id="taille"><br><br>
+
+<button onclick="calculerIMC()">Calculer</button>
+
+<p id="resultat"></p>
+
+<script>
+
+function calculerIMC(){
+
+    var poids = Number(document.getElementById("poids").value);
+    var taille = Number(document.getElementById("taille").value);
+
+    var imc = poids / (taille * taille);
+
+    var interpretation = "";
+
+    if(imc < 18.5){
+        interpretation = "Insuffisance pondérale";
+    }
+    else if(imc < 25){
+        interpretation = "Corpulence normale";
+    }
+    else if(imc < 30){
+        interpretation = "Surpoids";
+    }
+    else if(imc < 35){
+        interpretation = "Obésité modérée";
+    }
+    else if(imc < 40){
+        interpretation = "Obésité sévère";
+    }
+    else{
+        interpretation = "Obésité morbide";
+    }
+
+    document.getElementById("resultat").innerHTML =
+    "Votre IMC est : " + imc.toFixed(2) + " → " +"vous etes en etats d` "+ interpretation;
+
+}
+
+</script>
+
+</body>
+</html>
